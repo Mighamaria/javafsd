@@ -34,10 +34,17 @@ public class App
 //            stmt.executeUpdate(sql);
 //            System.out.println("database created successfully...");
     		
-    		String sql = "CREATE table employee( name Varchar(10), age INT)";
-            stmt.executeUpdate(sql);
-            System.out.println("table created successfully...");
+//    		// creating table 
+//    		String sql = "CREATE table employee( name Varchar(10), age INT)";
+//            stmt.executeUpdate(sql);
+//            System.out.println("table created successfully...");
     		
+    		// Inserting 
+    		String sql = "insert into employee values('ram', 19),('raju',24),('annu',29)";
+            stmt.executeUpdate(sql);
+            System.out.println("inserted  successfully...");
+    		
+//    		
     		con.close();  
     		}catch(Exception e){ System.out.println(e);}  
     }
