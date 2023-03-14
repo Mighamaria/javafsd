@@ -1,3 +1,4 @@
+Write a java program to find the  common item in the array
 /**
  * 
  */
