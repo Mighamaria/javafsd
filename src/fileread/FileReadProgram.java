@@ -1,3 +1,4 @@
+Write a java program to read the elements from it.
 /**
  * 
  */
