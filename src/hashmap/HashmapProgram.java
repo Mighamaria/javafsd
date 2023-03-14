@@ -1,3 +1,4 @@
+Write a  java program  to find whether particular  word present  in it or not.
 /**
  * 
  */
