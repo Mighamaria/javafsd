@@ -1,4 +1,5 @@
-/**
+Write a java program to print hash code using hashmap 
+ /**
  * 
  */
 package college;
