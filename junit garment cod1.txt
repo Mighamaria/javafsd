@@ -1,0 +1,124 @@
+package junittestcase.garments;
+
+import java.time.LocalDate;
+
+
+public class GarmentProduct {
+    private final String name;
+    private final int saleCount;
+    private final double price;
+    private final LocalDate saleDate;
+
+    public GarmentProduct(String name, int saleCount, double price, LocalDate saleDate) {
+        this.name = name;
+        this.saleCount = saleCount;
+        this.price = price;
+        this.saleDate = saleDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSaleCount() {
+        return saleCount;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public LocalDate getSaleDate() {
+        return saleDate;
+    }
+
+    public double getTotalSaleAmount() {
+        return saleCount * price;
+    }
+}
+--------------------------------------------------------------------------------------------------
+package junittestcase.garments;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Hello world!.
+ */
+public class GarmentSaleAnalyzer {
+  
+  /** The garments. */
+  private final List<GarmentProduct> garments;
+
+  /**
+   * Instantiates a new garment sale analyzer.
+   *
+   * @param garments the garments
+   */
+  public GarmentSaleAnalyzer(List<GarmentProduct> garments) {
+      this.garments = garments;
+  }
+
+  /**
+   * Analyze.
+   *
+   * @param selectedDate the selected date
+   * @return the map
+   */
+  public Map<String, Double> analyze(LocalDate selectedDate) {
+      List<GarmentProduct> selectedGarments = garments.stream()
+              .filter(g -> g.getSaleDate().equals(selectedDate))
+              .collect(Collectors.toList());
+
+      Map<String, Double> garmentSales = new HashMap<>();
+
+      for (GarmentProduct garment : selectedGarments) {
+          double totalSaleAmount = garment.getTotalSaleAmount();
+          if (garmentSales.containsKey(garment.getName())) {
+              totalSaleAmount += garmentSales.get(garment.getName());
+          }
+          garmentSales.put(garment.getName(), totalSaleAmount);
+      }
+
+      return garmentSales;
+  }
+}
+--------------------------------------------------------------------------------------------------
+package junittestcase.garments;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.time.LocalDate;
+
+/**
+ * Unit test for simple App.
+ */
+
+  public class GarmentSaleAnalyzerTest {
+    @Test
+    public void testGarmentSaleAnalyzer() {
+        List<GarmentProduct> garments = new ArrayList<>();
+        garments.add(new GarmentProduct("t-Shirt", 10, 500, LocalDate.of(2023, 3, 10)));
+        garments.add(new GarmentProduct("Pants", 5, 200, LocalDate.of(2023, 3, 10)));
+        garments.add(new GarmentProduct("Shirt", 5, 250, LocalDate.of(2023, 3, 9)));
+        garments.add(new GarmentProduct("Shirt", 5, 500, LocalDate.of(2023, 3, 10)));
+
+
+        GarmentSaleAnalyzer analyzer = new GarmentSaleAnalyzer(garments);
+
+        Map<String, Double> result = analyzer.analyze(LocalDate.of(2023, 3, 10));
+
+        //assertEquals(2, result.size());
+        assertEquals(2500, result.get("Shirts"), 0);
+        //assertEquals(1000, result.get("Pants"), 0);
+    }
+}
+
+  
