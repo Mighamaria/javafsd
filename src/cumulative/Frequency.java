@@ -1,3 +1,4 @@
+Write a java program to find the cumulative frequency.
 /**
  * 
  */
