@@ -1,3 +1,5 @@
+Employee table has 3 parameters: string empid,string empname,double salary.sort the employee based on salaries.If the condition is above 50000,10% increment of previous salary,if salary moves above 100000 increment by 5%.Find the employee name and
+current salary.
 /**
  * 
  */
