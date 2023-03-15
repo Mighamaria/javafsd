@@ -1,40 +1,53 @@
-package ustbatchnumber3.testng;
+package ustbatchnumber3.sonarqube;
 
-/**
- * Hello world!
- *
- */
-public class Employee
-{
-  private String name;
-  private int age;
-  private String department;
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public int getAge() {
-	return age;
-}
-@Override
-public String toString() {
-	return "Employee [name=" + name + ", age=" + age + ", department=" + department + "]";
-}
-public void setAge(int age) {
-	this.age = age;
-}
-public String getDepartment() {
-	return department;
-}
-public void setDepartment(String department) {
-	this.department = department;
-}
-public Employee(String name, int age, String department) {
-	super();
-	this.name = name;
-	this.age = age;
-	this.department = department;
-}
-}
+public class Employee {
+	
+	 private  int empnumber;
+	  private  int age;
+	  private  int noofyears;
+	  private  double salary;
+	@Override
+	public String toString() {
+		return "Employee [empnumber=" + empnumber + ", age=" + age + ", nonofyears=" + noofyears + ", salary=" + salary
+				+ "]";
+	}
+//	private  int nonofyears;
+//	  private  float salary;
+	public Employee(int empnumber, int age, int noofyears, double salary) {
+		super();
+		this.empnumber = empnumber;
+		this.age = age;
+		this.noofyears = noofyears;
+		this.salary = salary;
+	}
+	
+//	 Employee(int empnumber2, int age2, int noofyears2, float salary2) {
+//		// TODO Auto-generated constructor stub
+//	}public
+	public int getEmpnumber() {
+		return empnumber;
+	}
+	public void setEmpnumber(int empnumber) {
+		this.empnumber = empnumber;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getNoofyears() {
+		return noofyears;
+	}
+	public void setNoofyears(int nonofyears) {
+		this.noofyears = nonofyears;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double d) {
+		this.salary = d;
+	}
+	
+	}
+
